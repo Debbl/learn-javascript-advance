@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>按钮</button>
+    <script>
+      // 1. setTimeout
+      // setTimeout(() => {
+      //   console.log('this of setTimeout: ', this); // window
+      // }, 1000);
+
+      // setTimeout(function () {
+      //   console.log('this of setTimeout: ', this); // window
+      // }, 1000);
+
+      // var obj = {
+      //   name: 'objName',
+      //   bar: function () {
+      //     console.log('bar this', this);
+      //     setTimeout(() => {
+      //       console.log('this of setTimeout: ', this); // obj
+      //     }, 1000);
+      //   },
+      // };
+
+      // obj.bar();
+
+      // var obj1 = {
+      //   name: 'objName',
+      //   bar: function () {
+      //     console.log('bar this', this);
+      //     setTimeout(function () {
+      //       console.log('this of setTimeout: ', this); // window
+      //     }, 1000);
+      //   },
+      // };
+
+      // obj1.bar();
+
+      // 2. DOM 事件监听
+      // var btnEl = document.querySelector('button');
+      // btnEl.addEventListener('click', function () {
+      //   console.log('btn this: ', this); // Event DOM Object
+      // });
+      // btnEl.addEventListener('click', () => {
+      //   console.log('btn this: ', this); // window
+      // });
+
+      // 3. forEach
+      ['abc', 'cba', 'nba'].forEach(function (item) {
+        console.log('forEach this', this); // window
+      });
+      ['abc', 'cba', 'nba'].forEach(function (item) {
+        console.log('forEach this', this); // 'aaa'
+      }, 'aaa');
+      // 箭头函数
+      ['abc', 'cba', 'nba'].forEach((item) => {
+        console.log('forEach this', this); // window
+      });
+      ['abc', 'cba', 'nba'].forEach((item) => {
+        console.log('forEach this', this); // window
+      }, 'aaa');
+    </script>
+  </body>
+</html>

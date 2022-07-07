@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // var obj = {
+      //   name: 'objName',
+      //   fnc: function () {
+      //     console.log('obj fnc this: ', this);
+      //   },
+      // };
+
+      // obj.fnc();
+      // // 显示 大于 隐式
+      // obj.fnc.call('aaa');
+
+      var obj = {
+        name: 'debbl',
+        foo: function () {
+          console.log('this: ', this);
+          console.log(this === obj);
+        },
+      };
+
+      obj.foo();
+      new obj.foo();
+    </script>
+  </body>
+</html>

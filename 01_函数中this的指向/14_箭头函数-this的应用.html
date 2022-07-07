@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function request(url, callbackFn) {
+        console.log(this);
+        callbackFn(['abc', 'cba', 'nba']);
+      }
+
+      function request1(url, fn) {
+        console.log('request1 this:', this);
+        var obj3 = {
+          name: 'obj3',
+          fn,
+          func: function () {
+            var age = 16;
+            console.log('func this', this);
+            fn();
+          },
+        };
+        var age = 17;
+        fn('request------------1213-');
+        obj3.fn('request===============');
+        obj3.func();
+      }
+      var obj = {
+        name: [],
+        newWalk: function () {
+          request('/get', (res) => {
+            console.log(this);
+            console.log(res);
+            this.name = res; // this -> obj
+          });
+        },
+        newWalk1: function () {
+          var obj1 = {
+            name: 'obj1',
+            fnc: function (res) {
+              console.log(this);
+              console.log(res);
+              this.name = res; // this -> obj
+            },
+          };
+          var age = 18;
+          // request1('/get', (res) => {
+          //   console.log('this: ', this);
+          //   console.log(res);
+          // });
+          request1('/get', function (res) {
+            console.log(age);
+            console.log('this: ', this);
+            console.log(res);
+          });
+        },
+      };
+
+      // obj.newWalk();
+      obj.newWalk1();
+      console.log(obj.name);
+    </script>
+  </body>
+</html>

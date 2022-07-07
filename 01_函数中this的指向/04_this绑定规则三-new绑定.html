@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+        new 过程
+          1. 创建一个空对象
+          2. this 指向这个 空对象
+          3. 执行函数的代码
+          4. 没有显示的返回非空对象时，默认返回这个空对象
+    */
+
+      function foo() {
+        this.name = 'foo';
+        console.log('foo this: ', this);
+        // return {};
+      }
+
+      new foo();
+      console.log(new foo());
+    </script>
+  </body>
+</html>

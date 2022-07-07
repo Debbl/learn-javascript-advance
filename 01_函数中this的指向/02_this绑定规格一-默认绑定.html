@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1. 独立函数调用 this 指向 window
+      function foo() {
+        console.log('foo this: ', this);
+      }
+
+      foo();
+
+      // 2. 函数嵌套
+      function foo1() {
+        console.log('foo1 this: ', this);
+        foo();
+      }
+      foo1();
+
+      var obj = {
+        name: 'de',
+        bar: function () {
+          console.log('obj bar this', this);
+        },
+      };
+      // 3. 高阶函数
+      function bar(fn) {
+        console.log('bar this: ', this);
+        fn();
+      }
+      bar(foo);
+      bar(obj.bar);
+    </script>
+  </body>
+</html>

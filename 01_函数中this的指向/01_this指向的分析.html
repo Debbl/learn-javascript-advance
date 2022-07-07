@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 定义一个函数
+      function foo() {
+        console.log('foo函数执行 this:', this);
+      }
+
+      // 1. 直接调用
+      foo();
+
+      // 2. 通过 对象 调用
+      var obj = {
+        name: 'de',
+      };
+      obj.aaa = foo;
+      obj.aaa();
+    </script>
+  </body>
+</html>
